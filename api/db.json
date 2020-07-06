@@ -1,4 +1,8 @@
 {
+  "applications": [
+    { "id": 1, "name": "prva" },
+    { "id": 2, "name": "druga" }
+  ],
     "posts": [
       { "id": 1, "title": "json-server", "author": "typicode" }
     ],
