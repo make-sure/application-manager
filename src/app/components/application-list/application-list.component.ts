@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../../modules/Application';
 import { ApplicationService } from '../../services/application.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-application-list',
@@ -9,10 +10,26 @@ import { ApplicationService } from '../../services/application.service';
 })
 export class ApplicationListComponent implements OnInit {
   applications:Application[];
-  constructor(private applicationService: ApplicationService) { }
+  selectedApplication:Application;
+  newUserFlag:Boolean;
+
+  constructor(private applicationService: ApplicationService, private router: Router) { }
 
   ngOnInit(): void {
     this.applicationService.getApplications().subscribe(applications => { this.applications = applications; });
   }
 
+  deleteApplication(application:Application) {
+    this.applications = this.applications.filter(app => app.id != application.id);
+    this.applicationService.deleteApplication(application).subscribe();  
+  }
+
+  onSelect(application:Application): void {
+    this.selectedApplication=application;
+  }
+
+  newUserDialog() {
+    //this.router.navigate(['new-application']);
+    this.newUserFlag=true;
+  }
 }

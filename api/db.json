@@ -1,13 +1,24 @@
 {
   "applications": [
-    { "id": 1, "name": "prva" },
-    { "id": 2, "name": "druga" }
-  ],
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
-  }
+    {
+      "id": 1,
+      "name": "Aleksandra Krcic",
+      "email": "ak@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Milan Jovic",
+      "email": "mj@gmail.com"
+    },
+    {
+      "name": "ds",
+      "email": "s@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "novi",
+      "email": "a@gmail.com",
+      "id": 6
+    }
+  ]
+}

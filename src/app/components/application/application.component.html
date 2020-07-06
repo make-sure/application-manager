@@ -1,1 +1,15 @@
-<p>application works!</p>
+<div *ngIf="application">
+
+    <h2>{{application.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{application.id}}</div>
+    <input [(ngModel)]="application.name"  placeholder="name"/>
+    <div>
+      <label>name:
+        <input [(ngModel)]="application.name"  placeholder="name"/>
+      </label>
+      <label>email:
+        <input [(ngModel)]="application.email" placeholder="email"/>
+      </label>
+    </div>
+  
+  </div>
