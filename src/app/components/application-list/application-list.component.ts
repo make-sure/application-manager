@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class ApplicationListComponent implements OnInit {
   applications:Application[];
   selectedApplication:Application;
-  newUserFlag:Boolean;
 
   constructor(private applicationService: ApplicationService, private router: Router) { }
 
@@ -24,12 +23,17 @@ export class ApplicationListComponent implements OnInit {
     this.applicationService.deleteApplication(application).subscribe();  
   }
 
-  onSelect(application:Application): void {
+  editApplication(application:Application) {
+    
+    this.router.navigate(['edit-application'], { queryParams: { application: application.id }});
+  }
+
+  showApplication(application:Application): void {
     this.selectedApplication=application;
   }
 
-  newUserDialog() {
-    //this.router.navigate(['new-application']);
-    this.newUserFlag=true;
+  newApplication() {
+    this.selectedApplication=null;
+    this.router.navigate(['new-application']);
   }
 }

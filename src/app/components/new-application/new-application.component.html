@@ -1,40 +1,57 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        
-        <div class="modal-body">
-            <!--
-            <form [formGroup]="addForm" (ngSubmit)="createApplication()">
-            <div class="form-group">
-              <label for="name">User Name:</label>
-              <input type="text" formControlName="name" placeholder="name" name="name" class="form-control" id="name">
-            </div>
-            <div class="form-group">
-                <label for="email">User Name:</label>
-                <input type="email" formControlName="email" placeholder="email" name="email" class="form-control" id="email">
-              </div>
-        </form>
-    -->
-   <label for="name">User Name:</label>
-              <input type="text" placeholder="name" name="name" id="name" [(ngModel)] = "newApplication.name">
-              <label for="email">User Name:</label>
-              <input type="email" placeholder="email" name="email" id="email" [(ngModel)] = "newApplication.email">
-           </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary" (click)=createApplication()>Save changes</button>
-        
-        </div>
-      </div>
-    </div>
+<form #form1="ngForm" (ngSubmit)="createApplication(form1)" style="max-width: 500px;">
+
+  <label for="name">Name:</label>
+  <input type="text" class="form-control" placeholder="name" name="name" id="name" [(ngModel)] = "newApplication.name"  #nameField="ngModel"
+      required>
+  <div *ngIf="nameField.touched && nameField.errors">
+    <div class="alert alert-danger" *ngIf="nameField.errors.required">*Required.</div>
   </div>
+    
+  <label for="email">Email:</label>
+  <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="email" name="email" id="email" [(ngModel)] = "newApplication.email" #emailField="ngModel"
+    required>
+  <div *ngIf="emailField.touched && (emailField.errors || emailField.errors?.pattern)">
+    <div class="alert alert-danger" *ngIf="emailField.errors.required">*Required.</div>
+    <div class="alert alert-danger" *ngIf="emailField.errors?.pattern">*Invalid.</div>
+  </div>
+
+  <label for="age">Age:</label>
+  <input type="number" class="form-control" placeholder="age" name="age" id="age" [(ngModel)] = "newApplication.age"  #ageField="ngModel"
+      required>
+  <div *ngIf="ageField.touched && ageField.errors">
+    <div class="alert alert-danger" *ngIf="nameField.errors.required">*Required.</div>
+  </div>
+
+  <label for="phone">Phone number:</label>
+  <input type="text" class="form-control" placeholder="phone" name="phone" id="phone" [(ngModel)] = "newApplication.phone"  #phoneField="ngModel"
+      required>
+  <div *ngIf="phoneField.touched && phoneField.errors">
+    <div class="alert alert-danger" *ngIf="phoneField.errors.required">*Required.</div>
+  </div>
+
+  <label>Preferred way of communication:</label>
+  <div>
+    <input type="radio" id="communicationEmail" name="communication" value="email" [(ngModel)] = "newApplication.communication" ngModel [checked]=true>
+    <label  for="communicationEmail">Email</label>
+    <input type="radio" id="communicationPhone" name="communication" value="phone" [(ngModel)] = "newApplication.communication" ngModel>
+    <label  for="communicationPhone">Phone</label>
+  </div>
+
+  <label for="english">English level:</label>
+  <select class="form-select" name="english" id="english" [(ngModel)] = "newApplication.english" ngModel>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+
+  <label for="skills">Technical Skills and Courses</label>
+  <textarea class="form-control rounded-0" id="skills" name="skills" value="" rows="3" [(ngModel)] = "newApplication.skills" ngModel></textarea>
+  <label for="personality">Short Personal Presentation</label>
+  <textarea class="form-control rounded-0" id="personality" name="personality" value="" rows="3" [(ngModel)] = "newApplication.personality" ngModel></textarea>
+  
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="homeStudy" name="homeStudy" value=false [(ngModel)] = "newApplication.homeStudy" ngModel>
+    <label for="homeStudy"> Study from home</label>
+  </div>
+  <button type="submit" class="submit-btn btn btn-success" [disabled]="!form1.valid">Add application</button>
+</form>

@@ -1,15 +1,17 @@
 <div *ngIf="application">
-
-    <h2>{{application.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{application.id}}</div>
-    <input [(ngModel)]="application.name"  placeholder="name"/>
+<div class="card border-primary mb-3" style="max-width: 500px;">
+  <div class="card-header">Application {{application.id}}</div>
+  <div class="card-body">
+    <h2>{{application.name | uppercase}}</h2>
     <div>
-      <label>name:
-        <input [(ngModel)]="application.name"  placeholder="name"/>
-      </label>
-      <label>email:
-        <input [(ngModel)]="application.email" placeholder="email"/>
-      </label>
+      <p>email: {{application.email}}</p>     
+      <p>age: {{application.age}}</p>      
+      <p>phone number: {{application.phone}}</p>    
+      <p>english level: {{application.english}}</p>     
+      <p>skills: {{application.skills}}</p>      
+      <p>personality: {{application.personality}}</p>      
+      <p>study from home: {{application.homeStudy}}</p>
     </div>
-  
+    </div>
+    </div>
   </div>

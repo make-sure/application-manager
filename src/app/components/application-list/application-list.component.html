@@ -1,6 +1,8 @@
-<button (click)="newUserDialog()">delete</button>
-
-<table class="table table-hover">
+<div>
+<button class="btn btn-primary" (click)="newApplication()">Add new application</button>
+</div>
+<div class="column">
+<table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -10,16 +12,20 @@
     </tr>
   </thead>
   <tbody>
-<tr *ngFor="let app of applications" [class.selected]="app === selectedApplication" (click)="onSelect(app) ">
-  <td>{{app.id}}</td>
-  <td>{{app.name}}</td>
-  <td>{{app.email}}</td>
-  <button (click)="deleteApplication(app)">delete</button>
-</tr>
-</tbody>
-</table>
+    <tr *ngFor="let app of applications" [class.selected]="app === selectedApplication">
+      <td>{{app.id}}</td>
+      <td>{{app.name}}</td>
+      <td>{{app.email}}</td>
 
-<app-application [application]="selectedApplication"></app-application>
-<!--
-    <app-new-application *ngIf="newUserFlag==true"></app-new-application>-->
-    <app-new-application></app-new-application>
+      <td>
+        <a href="#appDetails" (click)="showApplication(app)">details</a>
+        <button class="btn action" (click)="editApplication(app)"><i class="fa fa-edit"></i></button>
+        <button class="btn action" (click)="deleteApplication(app)"><i class="fa fa-close"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div  class="column">
+  <app-application id="appDetails" [application]="selectedApplication"></app-application>
+</div>

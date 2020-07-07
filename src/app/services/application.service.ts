@@ -20,6 +20,10 @@ export class ApplicationService {
     return this.http.get<Application[]>('/api/applications');
   }
 
+  getApplication(id:number):Observable<Application> {
+    return this.http.get<Application>('/api/applications/'+id);
+  }
+
   deleteApplication(application:Application):Observable<Application> {
     const id = application.id;
     return this.http.delete<Application>('/api/applications/'+id, httpOptions);
@@ -27,5 +31,10 @@ export class ApplicationService {
 
   createApplication(application:Application): Observable<Application> {
       return this.http.post<Application>('/api/applications', application, httpOptions);
+  }
+
+  editApplication(application:Application): Observable<Object> {
+    const id = application.id;
+    return this.http.put('/api/applications/'+id, application);
   }
 }

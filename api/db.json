@@ -1,24 +1,58 @@
 {
   "applications": [
     {
-      "id": 1,
-      "name": "Aleksandra Krcic",
-      "email": "ak@gmail.com"
+      "id": 7,
+      "name": "Lara Britt",
+      "email": "laraa@gmail.com",
+      "age": 20,
+      "phone": "06288193",
+      "communication": "phone",
+      "english": "3"
     },
     {
-      "id": 2,
-      "name": "Milan Jovic",
-      "email": "mj@gmail.com"
+      "name": "John Smith",
+      "email": "john@gmail.com",
+      "age": 27,
+      "phone": "06288191",
+      "id": 14,
+      "communication": "phone",
+      "english": "3",
+      "skills": "Java \nC#",
+      "homeStudy": true
     },
     {
-      "name": "ds",
-      "email": "s@gmail.com",
-      "id": 5
+      "name": "Amy Lee",
+      "email": "ak@gmail.com",
+      "age": 25,
+      "phone": "432",
+      "communication": "email",
+      "english": "2",
+      "skills": "web\njs\nc\nc+\nc#\njava",
+      "personality": "Loves programming.",
+      "homeStudy": true,
+      "id": 18
     },
     {
-      "name": "novi",
-      "email": "a@gmail.com",
-      "id": 6
+      "name": "Milena Milic",
+      "email": "milenam@gmail.com",
+      "age": 25,
+      "phone": "063225132",
+      "communication": "phone",
+      "english": "3",
+      "skills": "HTML\nCSS\nJacaScript\nAngular",
+      "personality": "I am Milena Milic. I am 25 years old. ",
+      "homeStudy": true,
+      "id": 19
+    },
+    {
+      "name": "Jovan Jelic",
+      "email": "joca@gmail.com",
+      "age": 26,
+      "phone": "063779212",
+      "communication": "phone",
+      "english": "2",
+      "homeStudy": true,
+      "id": 20
     }
   ]
 }

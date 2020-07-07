@@ -7,21 +7,24 @@ import { ApplicationListComponent } from './components/application-list/applicat
 import { ApplicationComponent } from './components/application/application.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewApplicationComponent } from './components/new-application/new-application.component';
+import { EditApplicationComponent } from './components/edit-application/edit-application.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApplicationListComponent,
     ApplicationComponent,
-    NewApplicationComponent
+    NewApplicationComponent,
+    EditApplicationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
